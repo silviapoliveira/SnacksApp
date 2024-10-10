@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using SnacksApp.Services;
+using SnacksApp.Validations;
 
 namespace SnacksApp
 {
@@ -22,6 +23,7 @@ namespace SnacksApp
 
             builder.Services.AddHttpClient();
             builder.Services.AddSingleton<ApiService>();
+            builder.Services.AddSingleton<IValidator, Validator>();
             return builder.Build();
         }
     }

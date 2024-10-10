@@ -4,12 +4,25 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:SnacksApp"
+    xmlns:pages="clr-namespace:SnacksApp.Pages"
     Shell.FlyoutBehavior="Disabled"
-    Title="SnacksApp">
+    Shell.TabBarBackgroundColor="#a90409"
+    Shell.TabBarTitleColor="white"
+    Shell.TabBarUnselectedColor="FloralWhite">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <Tab Title="Home" Icon="home">
+            <ShellContent ContentTemplate="{DataTemplate pages:HomePage}" />
+        </Tab>
+        <Tab Title="Cart" Icon="cart">
+            <ShellContent ContentTemplate="{DataTemplate pages:CartPage}" />
+        </Tab>
+        <Tab Title="Favorite" Icon="heart">
+            <ShellContent ContentTemplate="{DataTemplate pages:FavoritePage}" />
+        </Tab>
+        <Tab Title="Profile" Icon="profile">
+            <ShellContent ContentTemplate="{DataTemplate pages:ProfilePage}" />
+        </Tab>
+    </TabBar>
 
 </Shell>

@@ -10,7 +10,7 @@ namespace SnacksApp.Services
     public class ApiService
     {
         private readonly HttpClient _httpClient;
-        public readonly string _baseUrl = "https://98mfdth3-7140.uks1.devtunnels.ms/";
+        public readonly string _baseUrl = "https://rdv5rms4-44326.uks1.devtunnels.ms/";
         private readonly ILogger<ApiService> _logger;
         JsonSerializerOptions _serializerOptions;
 
@@ -41,7 +41,7 @@ namespace SnacksApp.Services
                 var json = JsonSerializer.Serialize(register, _serializerOptions);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var response = await PostRequest("api/User/Register", content);
+                var response = await PostRequest("api/Users/Register", content);
 
                 if (!response.IsSuccessStatusCode)
                 {
@@ -75,7 +75,7 @@ namespace SnacksApp.Services
                 var json = JsonSerializer.Serialize(login, _serializerOptions);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var response = await PostRequest("api/User/Login", content);
+                var response = await PostRequest("api/Users/Login", content);
 
                 if (!response.IsSuccessStatusCode)
                 {

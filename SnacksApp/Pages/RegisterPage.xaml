@@ -13,7 +13,7 @@
             HeightRequest="100"
             WidthRequest="100" />
         <Label Grid.Row="1"
-            Text="Hello! Join us"
+            Text="Hello! Join us:"
             FontAttributes="Bold"
             HorizontalOptions="Center" />
 
