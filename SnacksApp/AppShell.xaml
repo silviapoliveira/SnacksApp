@@ -10,19 +10,6 @@
     Shell.TabBarTitleColor="white"
     Shell.TabBarUnselectedColor="FloralWhite">
 
-    <TabBar>
-        <Tab Title="Home" Icon="home">
-            <ShellContent ContentTemplate="{DataTemplate pages:HomePage}" />
-        </Tab>
-        <Tab Title="Cart" Icon="cart">
-            <ShellContent ContentTemplate="{DataTemplate pages:CartPage}" />
-        </Tab>
-        <Tab Title="Favorite" Icon="heart">
-            <ShellContent ContentTemplate="{DataTemplate pages:FavoritePage}" />
-        </Tab>
-        <Tab Title="Profile" Icon="profile">
-            <ShellContent ContentTemplate="{DataTemplate pages:ProfilePage}" />
-        </Tab>
-    </TabBar>
+    
 
 </Shell>
