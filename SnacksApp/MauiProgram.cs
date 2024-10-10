@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using SnacksApp.Services;
 
 namespace SnacksApp
 {
@@ -20,6 +21,7 @@ namespace SnacksApp
 #endif
 
             builder.Services.AddHttpClient();
+            builder.Services.AddSingleton<ApiService>();
             return builder.Build();
         }
     }
