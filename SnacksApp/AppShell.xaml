@@ -6,10 +6,14 @@
     xmlns:local="clr-namespace:SnacksApp"
     xmlns:pages="clr-namespace:SnacksApp.Pages"
     Shell.FlyoutBehavior="Disabled"
-    Shell.TabBarBackgroundColor="#a90409"
-    Shell.TabBarTitleColor="white"
-    Shell.TabBarUnselectedColor="FloralWhite">
-
-    
+       Shell.NavBarHasShadow="True"
+       Shell.BackgroundColor="#2196F3"
+       Shell.ForegroundColor="White"
+       Shell.TitleColor="White"
+       Shell.UnselectedColor="White"
+       Shell.DisabledColor="#BFBFBF"
+       Shell.TabBarTitleColor="AntiqueWhite"
+       Shell.TabBarBackgroundColor="#2196F3"
+       Shell.TabBarForegroundColor="White">
 
 </Shell>
