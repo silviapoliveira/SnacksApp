@@ -58,8 +58,10 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\cart.png" />
+	  <None Remove="Resources\Images\confirmado.gif" />
 	  <None Remove="Resources\Images\delete.png" />
 	  <None Remove="Resources\Images\edit.png" />
+	  <None Remove="Resources\Images\emptycart.jpg" />
 	  <None Remove="Resources\Images\faq.png" />
 	  <None Remove="Resources\Images\foodicon.png" />
 	  <None Remove="Resources\Images\heart.png" />
@@ -69,7 +71,11 @@
 	  <None Remove="Resources\Images\lanchesico.png" />
 	  <None Remove="Resources\Images\lanchesimg.png" />
 	  <None Remove="Resources\Images\leftarrow.png" />
+	  <None Remove="Resources\Images\logout.png" />
 	  <None Remove="Resources\Images\orders.png" />
+	  <None Remove="Resources\Images\pedidos.png" />
+	  <None Remove="Resources\Images\perfilconfig.png" />
+	  <None Remove="Resources\Images\perguntas.png" />
 	  <None Remove="Resources\Images\profile.png" />
 	  <None Remove="Resources\Images\profilesettings.png" />
 	  <None Remove="Resources\Images\rightarrow.png" />

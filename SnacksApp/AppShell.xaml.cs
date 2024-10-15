@@ -20,18 +20,18 @@ namespace SnacksApp
         private void ConfigureShell()
         {
             var homePage = new HomePage(_apiService, _validator);
-            var carrinhoPage = new CartPage();
-            var favoritosPage = new PopularPage();
-            var perfilPage = new ProfilePage();
+            var cartPage = new CartPage(_apiService, _validator);
+            var favoritesPage = new PopularPage();
+            var profilePage = new ProfilePage();
 
             Items.Add(new TabBar
             {
                 Items =
             {
                 new ShellContent { Title = "Home",Icon = "home",Content = homePage },
-                new ShellContent { Title = "Carrinho", Icon = "cart",Content = carrinhoPage },
-                new ShellContent { Title = "Favoritos",Icon = "heart",Content = favoritosPage },
-                new ShellContent { Title = "Perfil",Icon = "profile",Content = perfilPage }
+                new ShellContent { Title = "Cart", Icon = "cart",Content = cartPage },
+                new ShellContent { Title = "Favorites",Icon = "heart",Content = favoritesPage },
+                new ShellContent { Title = "Profile",Icon = "profile",Content = profilePage }
             }
             });
         }
