@@ -24,6 +24,21 @@ public partial class CartPage : ContentPage
     {
         base.OnAppearing();
         await GetShoppingCartItems();
+
+        bool savedAddress = Preferences.ContainsKey("address");
+
+        if (savedAddress)
+        {
+            string name = Preferences.Get("name", string.Empty);
+            string address = Preferences.Get("address", string.Empty);
+            string phonenumber = Preferences.Get("phonenumber", string.Empty);
+
+            // Formatar os dados conforme desejado na label
+            LblAddress.Text = $"{name}\n{address}\n{phonenumber}";
+        } else
+        {
+            LblAddress.Text = "Please insert your address";
+        }
     }
 
     private async Task<IEnumerable<ShoppingCartItem>> GetShoppingCartItems()
@@ -88,23 +103,46 @@ public partial class CartPage : ContentPage
         await Navigation.PushAsync(new LoginPage(_apiService, _validator));
     }
 
-    private void BtnDecrease_Clicked(object sender, EventArgs e)
+    private async void BtnDecrease_Clicked(object sender, EventArgs e)
     {
-
+        if (sender is Button button && button.BindingContext is ShoppingCartItem itemCart)
+        {
+            if (itemCart.Quantity == 1) return;
+            else
+            {
+                itemCart.Quantity--;
+                UpdateTotalPrice();
+                await _apiService.UpdateShoppingCartItemQuantity(itemCart.ProductId, "decrease");
+            }
+        }
     }
 
-    private void BtnIncrease_Clicked(object sender, EventArgs e)
+    private async void BtnIncrease_Clicked(object sender, EventArgs e)
     {
-
+        if (sender is Button button && button.BindingContext is ShoppingCartItem itemCart)
+        {
+            itemCart.Quantity++;
+            UpdateTotalPrice();
+            await _apiService.UpdateShoppingCartItemQuantity(itemCart.ProductId, "increase");
+        }
     }
 
-    private void BtnDelete_Clicked(object sender, EventArgs e)
+    private async void BtnDelete_Clicked(object sender, EventArgs e)
     {
-
+        if (sender is ImageButton button && button.BindingContext is ShoppingCartItem itemCart)
+        {
+            bool response = await DisplayAlert("Confirm", "Are you sure you want to delete this item from your cart?", "Yes", "No");
+            if (response)
+            {
+                ShoppingCartItems.Remove(itemCart);
+                UpdateTotalPrice();
+                await _apiService.UpdateShoppingCartItemQuantity(itemCart.ProductId, "delete");
+            }
+        }
     }
 
     private void BtnEditAddress_Clicked(object sender, EventArgs e)
     {
-
+        Navigation.PushAsync(new AddressPage());
     }
 }
