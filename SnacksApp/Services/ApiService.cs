@@ -304,5 +304,52 @@ namespace SnacksApp.Services
                 return new ApiResponse<bool> { ErrorMessage = ex.Message };
             }
         }
+
+        public async Task<(ProfileImage? ProfileImage, string? ErrorMessage)> GetUserProfileImage()
+        {
+            string endpoint = "api/users/userimage";
+            return await GetAsync<ProfileImage>(endpoint);
+        }
+
+        public async Task<ApiResponse<bool>> UploadUserImage (byte[] imageArray)
+        {
+            try
+            {
+                var content = new MultipartFormDataContent();
+                content.Add(new ByteArrayContent(imageArray), "image", "image.jpg");
+                var response = await PostRequest("api/users/uploadimage", content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    string errorMessage = response.StatusCode == HttpStatusCode.Unauthorized
+                      ? "Unauthorized"
+                      : $"Error sending HTTP request: {response.StatusCode}";
+
+                    _logger.LogError($"Error sending HTTP request: {response.StatusCode}");
+                    return new ApiResponse<bool> { ErrorMessage = errorMessage };
+                }
+                return new ApiResponse<bool> { Data = true };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error uploading user image: {ex.Message}");
+                return new ApiResponse<bool> { ErrorMessage = ex.Message };
+            }
+        }
+
+        public async Task<(List<OrdersByUser>?, string? ErrorMessage)> GetOrdersByUser(int userId)
+        {
+
+            string endpoint = $"api/orders/GetOrdersByUser/{userId}";
+
+            return await GetAsync<List<OrdersByUser>>(endpoint);
+        }
+
+        public async Task<(List<OrderDetails>?, string? ErrorMessage)> GetOrderDetails(int orderId)
+        {
+            string endpoint = $"api/orders/GetOrderDetails/{orderId}";
+
+            return await GetAsync<List<OrderDetails>>(endpoint);
+        }
     }
 }

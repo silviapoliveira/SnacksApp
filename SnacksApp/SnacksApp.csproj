@@ -80,6 +80,7 @@
 	  <None Remove="Resources\Images\profilesettings.png" />
 	  <None Remove="Resources\Images\rightarrow.png" />
 	  <None Remove="Resources\Images\uploadphoto.png" />
+	  <None Remove="Resources\Images\user1.png" />
 	  <None Remove="Resources\Splash\lanche.svg" />
 	</ItemGroup>
 
@@ -118,6 +119,12 @@
 	  <MauiXaml Update="Pages\FavoritesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\OrderDetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\OrdersPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\PopularPagePopular.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -140,5 +147,7 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionSnacksAppHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

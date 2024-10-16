@@ -24,7 +24,7 @@ namespace SnacksApp
             var homePage = new HomePage(_apiService, _validator, _favoriteService);
             var cartPage = new CartPage(_apiService, _validator, _favoriteService);
             var favoritesPage = new FavoritesPage(_apiService, _validator, _favoriteService);
-            var profilePage = new ProfilePage();
+            var profilePage = new ProfilePage(_apiService, _validator, _favoriteService);
 
             Items.Add(new TabBar
             {
