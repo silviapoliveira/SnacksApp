@@ -23,8 +23,8 @@
                      BackgroundColor="White"
                      HorizontalOptions="End"
                      VerticalOptions="Start"
-                     x:Name="BtnPopularImg"                      
-                     Clicked="BtnPopularImg_Clicked"/>
+                     x:Name="BtnFavoriteImg"                      
+                     Clicked="BtnFavoriteImg_Clicked"/>
 
         <HorizontalStackLayout Spacing="20"                               
                                HorizontalOptions="Center"

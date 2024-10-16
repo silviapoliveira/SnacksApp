@@ -197,7 +197,7 @@
                            VerticalOptions="Center" />
 
                     <HorizontalStackLayout.GestureRecognizers>
-                        <TapGestureRecognizer x:Name="TapConfirmOrder" />
+                        <TapGestureRecognizer x:Name="TapConfirmOrder" Tapped="TapConfirmOrder_Tapped" />
                     </HorizontalStackLayout.GestureRecognizers>
 
                 </HorizontalStackLayout>
