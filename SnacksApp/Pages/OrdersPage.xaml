@@ -6,6 +6,13 @@
 
     <VerticalStackLayout>
 
+        <ActivityIndicator x:Name="loadOrdersIndicator"
+           IsRunning="false"
+           IsVisible="false"
+           Color="Blue"
+           HorizontalOptions="Center"
+           VerticalOptions="Center" />
+
         <CollectionView x:Name="CvOrders"
                   Margin="20"
                   SelectionMode="Single"
